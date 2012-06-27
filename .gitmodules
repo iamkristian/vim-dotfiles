@@ -22,9 +22,6 @@
 [submodule "bundle/vim-addon-mw-utils"]
 	path = bundle/vim-addon-mw-utils
 	url = https://github.com/MarcWeber/vim-addon-mw-utils.git
-[submodule "bundle/snipmate-snippets"]
-	path = bundle/snipmate-snippets
-	url = https://github.com/honza/snipmate-snippets.git
 [submodule "bundle/vim-supertab"]
 	path = bundle/vim-supertab
 	url = https://github.com/tsaleh/vim-supertab.git
@@ -82,3 +79,6 @@
 [submodule "bundle/vim-rvm"]
 	path = bundle/vim-rvm
 	url = https://github.com/tpope/vim-rvm.git
+[submodule "bundle/tcomment_vim"]
+	path = bundle/tcomment_vim
+	url = https://github.com/tomtom/tcomment_vim.git
