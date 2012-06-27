@@ -40,3 +40,45 @@
 [submodule "bundle/vim-fugitive"]
 	path = bundle/vim-fugitive
 	url = git://github.com/tpope/vim-fugitive.git
+[submodule "bundle/vim-git"]
+	path = bundle/vim-git
+	url = git://github.com/tpope/vim-git.git
+[submodule "bundle/vim-markdown"]
+	path = bundle/vim-markdown
+	url = git://github.com/tpope/vim-markdown.git
+[submodule "bundle/vim-surround"]
+	path = bundle/vim-surround
+	url = git://github.com/tpope/vim-surround.git
+[submodule "bundle/vim-matchit"]
+	path = bundle/vim-matchit
+	url = git://github.com/tsaleh/vim-matchit.git
+[submodule "bundle/vim-shoulda"]
+	path = bundle/vim-shoulda
+	url = git://github.com/tsaleh/vim-shoulda.git
+[submodule "bundle/vim-ruby"]
+	path = bundle/vim-ruby
+	url = git://github.com/vim-ruby/vim-ruby.git
+[submodule "bundle/vim-textobj-user"]
+	path = bundle/vim-textobj-user
+	url = git://github.com/kana/vim-textobj-user.git
+[submodule "bundle/vim-textobj-rubyblock"]
+	path = bundle/vim-textobj-rubyblock
+	url = git://github.com/nelstrom/vim-textobj-rubyblock.git
+[submodule "bundle/vim-blockle"]
+	path = bundle/vim-blockle
+	url = git://github.com/jgdavey/vim-blockle.git
+[submodule "bundle/neocomplcache"]
+	path = bundle/neocomplcache
+	url = git://github.com/Shougo/neocomplcache.git
+[submodule "bundle/vim-pasta"]
+	path = bundle/vim-pasta
+	url = git://github.com/sickill/vim-pasta.git
+[submodule "bundle/vim-ruby-refactoring"]
+	path = bundle/vim-ruby-refactoring
+	url = git://github.com/ecomba/vim-ruby-refactoring.git
+[submodule "bundle/vim-bundler"]
+	path = bundle/vim-bundler
+	url = https://github.com/tpope/vim-bundler.git
+[submodule "bundle/vim-rvm"]
+	path = bundle/vim-rvm
+	url = https://github.com/tpope/vim-rvm.git

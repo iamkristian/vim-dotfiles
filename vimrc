@@ -21,6 +21,9 @@ set nohls
 set incsearch
 set number
 set virtualedit=all
+set laststatus=2
+set statusline=[%n]\ %<%.99f\ %h%w%m%r%{exists('*CapsLockStatusline')?CapsLockStatusline():''}%y[%{strlen(&fenc)?&fenc:'none'},%{&ff}]%{fugitive#statusline()}%=%-16(\ %l,%c-%v\ %)%P
+"
 "
 " Colors and fonts
 "
@@ -66,7 +69,6 @@ set guicursor+=i:blinkwait10
 "
 let g:slimv_swank_clojure = '! xterm -e lein swank &' 
 let vimclojure#FuzzyIndent = 1
-
 " Vimdiff options
 set diffopt=iwhite
 autocmd FileType ruby,eruby set omnifunc=rubycomplete#Complete
@@ -80,3 +82,8 @@ nnoremap <silent> <C-t> :CommandT<CR>
 let g:CommandTMaxHeight=12
 let g:CommandTMatchWindowReverse=1
 let g:CommandTMaxFiles=40000
+"
+" Pasta file types
+"
+"let g:pasta_disabled_filetypes = []
+"let g:pasta_enabled_filetypes = ['ruby', 'javascript', 'css', 'sh']
