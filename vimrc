@@ -1,6 +1,7 @@
 " 
 " Setup pathogen
 "
+runtime bundle/vim-pathogen/autoload/pathogen.vim
 set t_Co=256
 call pathogen#infect()
 call pathogen#helptags()
