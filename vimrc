@@ -12,8 +12,8 @@ set background=dark
 "
 set nocompatible
 set smartindent
-set tabstop=4
-set shiftwidth=4
+set tabstop=2
+set shiftwidth=2
 set showmatch
 set vb t_vb=
 set ruler
