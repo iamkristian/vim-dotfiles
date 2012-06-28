@@ -12,9 +12,8 @@ Well there are many ways to do that. And google will probably tell you the right
 
 __On a debian linux__
 
-You write
-    sudo apt-get install vim-nox
+You can write `sudo apt-get install vim-nox`
 
 __On OSX__ 
 
-You probably want the macvim package. Which can be found at [this link](http://code.google.com/p/macvim/)
+You'll probably want the macvim package. Which can be found at [this link](http://code.google.com/p/macvim/)
