@@ -11,9 +11,10 @@ set background=dark
 " Setup tabs and indent
 "
 set nocompatible
-set smartindent
-set tabstop=2
-set shiftwidth=2
+set tabstop=2 shiftwidth=2
+set expandtab
+set backspace=indent,eol,start
+
 set showmatch
 set vb t_vb=
 set ruler
@@ -47,7 +48,7 @@ set noswapfile
 " Persistent undo
 "
 try
-if 	MySys() == "windows"
+if MySys() == "windows"
 	set undodir=C:\Windows\Temp
 else
 	set undodir=~/.vim_runtime/undodir
@@ -67,7 +68,7 @@ set guicursor+=i:blinkwait10
 "
 " Clojure setup
 "
-let g:slimv_swank_clojure = '! xterm -e lein swank &' 
+let g:slimv_swank_clojure = '! xterm -e lein swank &'
 let vimclojure#FuzzyIndent = 1
 " Vimdiff options
 set diffopt=iwhite
@@ -83,7 +84,10 @@ let g:CommandTMaxHeight=12
 let g:CommandTMatchWindowReverse=1
 let g:CommandTMaxFiles=40000
 "
-" Pasta file types
+" Extra whitespaces
 "
-"let g:pasta_disabled_filetypes = []
-"let g:pasta_enabled_filetypes = ['ruby', 'javascript', 'css', 'sh']
+"autocmd BufWinEnter * match ExtraWhitespace /\s\+$\| \+\ze\t/
+autocmd BufWinEnter * match ExtraWhitespace /\s\+$\| \+\ze\t/
+autocmd InsertEnter * match ExtraWhitespace /\s\+\%#\@<!$/
+autocmd InsertLeave * match ExtraWhitespace /\s\+$/
+autocmd BufWinLeave * call clearmatches()
