@@ -13,9 +13,6 @@
 [submodule "bundle/ack.vim"]
 	path = bundle/ack.vim
 	url = https://github.com/mileszs/ack.vim
-[submodule "bundle/vim-ruby-debugger"]
-	path = bundle/vim-ruby-debugger
-	url = git://github.com/astashov/vim-ruby-debugger.git
 [submodule "bundle/snipmate"]
 	path = bundle/snipmate
 	url = git://github.com/garbas/vim-snipmate.git
