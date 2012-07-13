@@ -25,9 +25,6 @@
 [submodule "bundle/tlib_vim"]
 	path = bundle/tlib_vim
 	url = https://github.com/tomtom/tlib_vim.git
-[submodule "bundle/nerdtree"]
-	path = bundle/nerdtree
-	url = git://github.com/scrooloose/nerdtree.git
 [submodule "bundle/vim-endwise"]
 	path = bundle/vim-endwise
 	url = git://github.com/tpope/vim-endwise.git
@@ -84,4 +81,4 @@
   url = git://github.com/kien/ctrlp.vim.git
 [submodule "bundle/vim-rubytest"]
 	path = bundle/vim-rubytest
-	url = https://github.com/janx/vim-rubytest
+	url = git://github.com/janx/vim-rubytest.git

@@ -23,7 +23,7 @@ set incsearch
 set number
 set virtualedit=all
 set laststatus=2
-set statusline=[%n]\ %<%.99f\ %h%w%m%r%{exists('*CapsLockStatusline')?CapsLockStatusline():''}%y[%{strlen(&fenc)?&fenc:'none'},%{&ff}]%{fugitive#statusline()}%=%-16(\ %l,%c-%v\ %)%P
+set statusline=[%n]\ %<%.99f\ %h%w%m%r%{exists('*CapsLockStatusline')?CapsLockStatusline():''}%y[%{strlen(&fenc)?&fenc:'none'},%{&ff}]\ %{fugitive#statusline()}\ %{rvm#statusline()}%=%-16(\ %l,%c-%v\ %)%P
 "
 "
 " Colors and fonts
@@ -83,6 +83,12 @@ nnoremap <silent> <C-t> :CommandT<CR>
 let g:CommandTMaxHeight=12
 let g:CommandTMatchWindowReverse=1
 let g:CommandTMaxFiles=40000
+
+" ctrlp mappings
+let g:ctrlp_switch_buffer=2
+let g:ctrlp_open_new_file='t'
+let g:ctrlp_open_multiple_files='t'
+
 "
 " Extra whitespaces
 "
@@ -91,3 +97,13 @@ autocmd BufWinEnter * match ExtraWhitespace /\s\+$\| \+\ze\t/
 autocmd InsertEnter * match ExtraWhitespace /\s\+\%#\@<!$/
 autocmd InsertLeave * match ExtraWhitespace /\s\+$/
 autocmd BufWinLeave * call clearmatches()
+"
+" Automatic remove trailing spaces
+"
+fun! <SID>StripTrailingWhitespaces()
+    let l = line(".")
+    let c = col(".")
+    %s/\s\+$//e
+    call cursor(l, c)
+endfun
+autocmd FileType c,cpp,java,php,ruby,python autocmd BufWritePre <buffer> :call <SID>StripTrailingWhitespaces()
