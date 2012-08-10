@@ -8,10 +8,15 @@ if [[ -f "$HOME/.vimrc" ]]; then
 	echo "You already got a $HOME/.vimrc file - I'll move it to $HOME/.vimrc.old"
 	mv $HOME/.vimrc $HOME/.vimrc.old
 fi
+if [[ -f "$HOME/.gvimrc" ]]; then
+  echo "You already got a $HOME/.gvimrc file - I'll move it to $HOME/.gvimrc.old"
+  mv $HOME/.gvimrc $HOME/.gvimrc.old
+fi
 echo "Vim-dotfiles is in $DIR"
 echo "Symlinking to .vim and .vimrc"
 ln -s $DIR $HOME/.vim
 ln -s $DIR/vimrc $HOME/.vimrc
+ln -s $DIR/gvimrc $HOME/.gvimrc
 echo "Now initializing the submodules"
 CUR_DIR=`pwd`
 cd $DIR
