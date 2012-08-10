@@ -4,6 +4,9 @@ My vim setup and dotfile. The goal with this setup is to be able to switch machi
 
 Setup
 =====
+First clone this repos using
+```git clone git://github.com/iamkristian/vim-dotfiles.git .vim```
+in your home directory.
 To setup the environment simply run `./boostrap.sh` and you're ready to rock n' roll. Providing you've already got macvim or just vim installed.
 
 Installing Vim

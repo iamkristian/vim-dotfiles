@@ -7,9 +7,6 @@
 [submodule "bundle/vim-vimmynights"]
 	path = bundle/vim-vimmynights
 	url = git@github.com:iamkristian/vim-vimmynights.git
-[submodule "bundle/command-t"]
-	path = bundle/command-t
-	url = git://git.wincent.com/command-t.git
 [submodule "bundle/ack.vim"]
 	path = bundle/ack.vim
 	url = https://github.com/mileszs/ack.vim
