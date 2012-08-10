@@ -5,7 +5,9 @@ My vim setup and dotfile. The goal with this setup is to be able to switch machi
 Setup
 =====
 First clone this repos using
+
 ```git clone git://github.com/iamkristian/vim-dotfiles.git .vim```
+
 in your home directory.
 To setup the environment simply run `./boostrap.sh` and you're ready to rock n' roll. Providing you've already got macvim or just vim installed.
 
@@ -15,7 +17,7 @@ Well there are many ways to do that. And google will probably tell you the right
 
 __On a debian linux__
 
-You can write `sudo apt-get install vim-nox`
+You can write ```sudo apt-get install vim-nox```
 
 __On OSX__ 
 
