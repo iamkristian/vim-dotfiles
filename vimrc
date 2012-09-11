@@ -92,6 +92,7 @@ autocmd BufWinEnter * match ExtraWhitespace /\s\+$\| \+\ze\t/
 autocmd InsertEnter * match ExtraWhitespace /\s\+\%#\@<!$/
 autocmd InsertLeave * match ExtraWhitespace /\s\+$/
 autocmd BufWinLeave * call clearmatches()
+autocmd BufWritePre *.rb,*.js,*.erb,*.scss,*.md :%s/\s\+$//e
 "
 " Automatic remove trailing spaces
 "
@@ -101,4 +102,4 @@ fun! <SID>StripTrailingWhitespaces()
     %s/\s\+$//e
     call cursor(l, c)
 endfun
-autocmd FileType c,cpp,java,php,ruby,python autocmd BufWritePre <buffer> :call <SID>StripTrailingWhitespaces()
+"autocmd FileType c,cpp,java,php,ruby,python autocmd BufWritePre <buffer> :call <SID>StripTrailingWhitespaces()
