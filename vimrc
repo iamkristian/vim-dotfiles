@@ -2,11 +2,8 @@
 " Setup pathogen, and colors
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 runtime bundle/vim-pathogen/autoload/pathogen.vim
-set t_Co=256
 call pathogen#infect()
 call pathogen#helptags()
-colorscheme vimmynights
-set background=dark
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Setup tabs and indent
@@ -27,13 +24,16 @@ set number
 set winwidth=79
 set virtualedit=all
 set laststatus=2
+filetype plugin indent on
 set statusline=[%n]\ %<%.99f\ %h%w%m%r%{exists('*CapsLockStatusline')?CapsLockStatusline():''}%y[%{strlen(&fenc)?&fenc:'none'},%{&ff}]\ %{fugitive#statusline()}\ %{rvm#statusline()}%=%-16(\ %l,%c-%v\ %)%P
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Colors and fonts
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 syntax enable
-filetype plugin indent on
+set t_Co=256
+set background=dark
+colorscheme vimmynights
 if has("gui_running")
   set guioptions-=T
 endif
@@ -99,15 +99,16 @@ autocmd FileType ruby,eruby let g:rubycomplete_classes_in_global = 1
 let g:ctrlp_switch_buffer=2
 let g:ctrlp_open_new_file='t'
 let g:ctrlp_open_multiple_files='t'
+"let g:ctrlp_working_path_mode = 2
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Extra whitespaces
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-autocmd BufWinEnter * match ExtraWhitespace /\s\+$\| \+\ze\t/
-autocmd InsertEnter * match ExtraWhitespace /\s\+\%#\@<!$/
-autocmd InsertLeave * match ExtraWhitespace /\s\+$/
-autocmd BufWinLeave * call clearmatches()
-autocmd BufWritePre *.rb,*.js,*.erb,*.scss,*.md :%s/\s\+$//e
+"autocmd BufWinEnter * match ExtraWhitespace /\s\+$\| \+\ze\t/
+"autocmd InsertEnter * match ExtraWhitespace /\s\+\%#\@<!$/
+"autocmd InsertLeave * match ExtraWhitespace /\s\+$/
+"autocmd BufWinLeave * call clearmatches()
+"autocmd BufWritePre *.rb,*.js,*.erb,*.scss,*.md :%s/\s\+$//e
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " OPEN FILES IN DIRECTORY OF CURRENT FILE
