@@ -1,1 +1,1 @@
-set guifont=Monaco:h15
+set guifont=Source_Code_Pro:h15

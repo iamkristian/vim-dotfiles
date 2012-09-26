@@ -22,3 +22,7 @@ You can write ```sudo apt-get install vim-nox```
 __On OSX__ 
 
 You'll probably want the macvim package. Which can be found at [this link](http://code.google.com/p/macvim/)
+
+Fonts
+=====
+Eyecandy is equally important in a fixed width environment, Adobe made a brilliant thing for hackers. Check out their [source code pro](https://github.com/adobe/Source-Code-Pro) font.
