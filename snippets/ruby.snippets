@@ -23,7 +23,7 @@ snippet beg
 	end
 
 snippet req
-	require "${1}"${2}
+	require '${1}'${2}
 snippet #
 	# =>
 	
@@ -925,4 +925,12 @@ snippet bef
 snippet aft
 	after :${1:each} do
 		${2}
+	end
+snippet wit
+	within("${1}") do
+		${2}
+	end
+snippet witp
+	within("${1}") do
+	  page.should have_content("${2}")
 	end

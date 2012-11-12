@@ -38,33 +38,33 @@ set statusline=[%n]\ %<%.99f\ %h%w%m%r%{exists('*CapsLockStatusline')?CapsLockSt
 " Autocmds
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 augroup vimrcEx
-  " Clear all autocmds in the group
-  autocmd!
-  autocmd FileType text setlocal textwidth=78
-  " Jump to last cursor position unless it's invalid or in an event handler
-  autocmd BufReadPost *
-    \ if line("'\"") > 0 && line("'\"") <= line("$") |
-    \   exe "normal g`\"" |
-    \ endif
+" Clear all autocmds in the group
+autocmd!
+autocmd FileType text setlocal textwidth=78
+" Jump to last cursor position unless it's invalid or in an event handler
+autocmd BufReadPost *
+  \ if line("'\"") > 0 && line("'\"") <= line("$") |
+  \   exe "normal g`\"" |
+  \ endif
 
-  "for ruby, autoindent with two spaces, always expand tabs
-  autocmd FileType ruby,haml,eruby,yaml,html,javascript,sass,cucumber set ai sw=2 sts=2 et
-  " Leave the return key alone when in command line windows, since it's used
-  " to run commands there.
-  autocmd! CmdwinEnter * :unmap <cr>
-  autocmd! CmdwinLeave * :call MapCR()
+"for ruby, autoindent with two spaces, always expand tabs
+autocmd FileType ruby,haml,eruby,yaml,html,javascript,sass,cucumber set ai sw=2 sts=2 et
+" Leave the return key alone when in command line windows, since it's used
+" to run commands there.
+autocmd! CmdwinEnter * :unmap <cr>
+autocmd! CmdwinLeave * :call MapCR()
 augroup END
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Colors and fonts
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 syntax on
 if has("gui_running")
-  set guioptions-=T
-  colorscheme vimmynights
+set guioptions-=T
+colorscheme vimmynights
 else
-  set t_Co=256
-  set scrolloff=10
-  color grb256
+set t_Co=256
+set scrolloff=10
+color grb256
 endif
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -72,7 +72,7 @@ endif
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 imap <c-l> <space>=><space>
 function! MapCR()
-    nnoremap <cr> :nohlsearch<cr>
+  nnoremap <cr> :nohlsearch<cr>
 endfunction
 call MapCR()
 :nnoremap <CR> :nohlsearch<cr>
@@ -95,11 +95,11 @@ set noswapfile
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 try
 if MySys() == "windows"
-	set undodir=C:\Windows\Temp
+set undodir=C:\Windows\Temp
 else
-	set undodir=~/.vim_runtime/undodir
+set undodir=~/.vim_runtime/undodir
 endif
-    set undofile
+  set undofile
 catch
 endtry
 
@@ -158,7 +158,8 @@ autocmd BufWritePre *.rb,*.js,*.erb,*.scss,*.md,*.vim,*.xml :%s/\s\+$//e
 " OPEN FILES IN DIRECTORY OF CURRENT FILE
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 cnoremap %% <C-R>=expand('%:h').'/'<cr>
-map <leader>e :edit %%
+map <leader>s :vsplit %%
+map <leader>e :tabe %%
 map <leader>v :view %%
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -218,8 +219,8 @@ map <leader>gl :CtrlPClearCache<cr>\|:CtrlP lib<cr>
 map <leader>gp :CtrlPClearCache<cr>\|:CtrlP public<cr>
 map <leader>gs :CtrlPClearCache<cr>\|:CtrlP spec<cr>
 map <leader>ga :CtrlPClearCache<cr>\|:CtrlP app/assets<cr>
-map <leader>f :CtrlPClearCache<cr>\|:CtrlP<cr>
-map <leader>F :CtrlPClearCache<cr>\|:CtrlP %%<cr>
+map <leader>f :CtrlP<cr>
+map <leader>F :CtrlP %%<cr>
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " SWITCH BETWEEN TEST AND PRODUCTION CODE
