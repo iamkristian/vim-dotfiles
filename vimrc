@@ -60,12 +60,17 @@ augroup END
 syntax on
 if has("gui_running")
 set guioptions-=T
+set scrolloff=10
 colorscheme vimmynights
 else
 set t_Co=256
 set scrolloff=10
-color grb256
+color vimmynights
 endif
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Highlight column 80, so you can easily cut off long lines
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+set cc=80
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Misc cmds
@@ -303,9 +308,9 @@ function! RunTests(filename)
         if filereadable("script/test")
             exec ":!script/test " . a:filename
         elseif filereadable("Gemfile")
-            exec ":!bundle exec rspec --color " . a:filename
+            exec ":!bundle exec rspec -d --color " . a:filename
         else
-            exec ":!rspec --color " . a:filename
+            exec ":!rspec -d --color " . a:filename
         end
     end
 endfunction
