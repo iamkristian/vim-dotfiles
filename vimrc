@@ -62,11 +62,11 @@ syntax on
 if has("gui_running")
 set guioptions-=T
 set scrolloff=10
-colorscheme grb256
+colorscheme mysolarized
 else
 set t_Co=256
 set scrolloff=10
-color grb256
+colorscheme mysolarized
 endif
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
