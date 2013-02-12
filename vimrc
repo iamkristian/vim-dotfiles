@@ -24,6 +24,7 @@ set vb t_vb=
 set ruler
 set number
 set winwidth=79
+set cc=79
 set virtualedit=all
 set laststatus=2
 filetype plugin indent on
@@ -48,7 +49,7 @@ autocmd BufReadPost *
   \ endif
 
 "for ruby, autoindent with two spaces, always expand tabs
-autocmd FileType ruby,haml,eruby,yaml,html,javascript,sass,cucumber set ai sw=2 sts=2 et
+autocmd FileType ruby,haml,eruby,yaml,sass,cucumber,html,php,javascript set ai sw=2 sts=2 et
 " Leave the return key alone when in command line windows, since it's used
 " to run commands there.
 autocmd! CmdwinEnter * :unmap <cr>
@@ -61,16 +62,12 @@ syntax on
 if has("gui_running")
 set guioptions-=T
 set scrolloff=10
-colorscheme vimmynights
+colorscheme grb256
 else
 set t_Co=256
 set scrolloff=10
-color vimmynights
+color grb256
 endif
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" Highlight column 80, so you can easily cut off long lines
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-set cc=80
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Misc cmds
@@ -140,6 +137,12 @@ autocmd FileType ruby,eruby let g:rubycomplete_classes_in_global = 1
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " CTRL-p mappings
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+set wildignore+=*/tmp/*,*/vendor/*
+let g:ctrlp_custom_ignore = {
+  \ 'dir':  '\v[\/]\.(git|hg|svn)$',
+  \ 'file': '\v\.(exe|so|dll)$',
+  \ 'link': 'some_bad_symbolic_links',
+  \ }
 let g:ctrlp_switch_buffer=2
 let g:ctrlp_open_new_file='t'
 let g:ctrlp_open_multiple_files='t'
@@ -157,7 +160,7 @@ autocmd BufWinEnter * match ExtraWhitespace /\s\+$\| \+\ze\t/
 autocmd InsertEnter * match ExtraWhitespace /\s\+\%#\@<!$/
 autocmd InsertLeave * match ExtraWhitespace /\s\+$/
 autocmd BufWinLeave * call clearmatches()
-autocmd BufWritePre *.rb,*.js,*.erb,*.scss,*.md,*.vim,*.xml :%s/\s\+$//e
+autocmd BufWritePre *.rb,*.js,*.erb,*.scss,*.css,*.md,*.vim,*.xml :%s/\s\+$//e
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " OPEN FILES IN DIRECTORY OF CURRENT FILE
@@ -168,6 +171,17 @@ map <leader>e :tabe %%
 map <leader>v :view %%
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Faster tab navigation
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+map <leader>[ :tabp<cr>
+map <leader>] :tabn<cr>
+map <leader>1 :tabn 1<cr>
+map <leader>2 :tabn 2<cr>
+map <leader>3 :tabn 3<cr>
+map <leader>4 :tabn 4<cr>
+map <leader>5 :tabn 5<cr>
+
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " ARROW KEYS ARE UNACCEPTABLE
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 map <Left> <Nop>
@@ -176,7 +190,7 @@ map <Up> <Nop>
 map <Down> <Nop>
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" ARROW KEYS ARE UNACCEPTABLE
+" Edit .vimrc on F10
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 map <F10> :tabe ~/.vimrc<CR>
 
@@ -196,6 +210,7 @@ map <leader>n :call RenameFile()<cr>
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " MAPS TO JUMP TO SPECIFIC COMMAND TARGETS AND FILES
+" Thanks Gary Bernhart
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 map <leader>gr :topleft :split config/routes.rb<cr>
 function! ShowRoutes()
@@ -314,3 +329,8 @@ function! RunTests(filename)
         end
     end
 endfunction
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Fugitive
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+map <leader>gs :Gstatus<CR>
+map <leader>gc :Gcommit<CR>
